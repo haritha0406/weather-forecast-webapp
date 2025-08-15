@@ -34,4 +34,7 @@ Briefly mention features you plan to add or improvements. This shows **growth mi
 - Include hourly forecasts
 - Add sunrise/sunset times
 - Implement search history and favorites
+## Live Demo
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open%20App-brightgreen?style=for-the-badge&logo=github)](https://haritha0406.github.io/weather-forecast-webapp/)
+
 
