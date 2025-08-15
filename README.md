@@ -17,23 +17,7 @@ This project demonstrates API integration, responsive UI design, and DOM manipul
 - Bootstrap 5
 - OpenWeatherMap API
 
-## How to Run Locally
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/weather-forecast-app.git
-const API_KEY = '0ae7909adb9d0eeea2354347203e1e28';
 
----
-
-## **Step 7: Future Enhancements**
-Briefly mention features you plan to add or improvements. This shows **growth mindset**.  
-
-```markdown
-## Future Enhancements
-- Add geolocation to detect user location automatically
-- Include hourly forecasts
-- Add sunrise/sunset times
-- Implement search history and favorites
 ## Live Demo
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Open%20App-brightgreen?style=for-the-badge&logo=github)](https://haritha0406.github.io/weather-forecast-webapp/)
 
