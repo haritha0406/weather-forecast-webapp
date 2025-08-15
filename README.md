@@ -21,7 +21,7 @@ This project demonstrates API integration, responsive UI design, and DOM manipul
 1. Clone the repository:
 ```bash
 git clone https://github.com/yourusername/weather-forecast-app.git
-const API_KEY = 'YOUR_API_KEY_HERE';
+const API_KEY = '0ae7909adb9d0eeea2354347203e1e28';
 
 ---
 
