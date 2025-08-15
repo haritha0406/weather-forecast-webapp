@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Live Weather</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="searchBar">
+        <div class="searchBarParentDiv">
+            <input type="text" class="inputfield" placeholder="Search City">
+            <img src="./search.png" alt="" width="35px" class="searchIcon" id="searchIcon">
+        </div>
+    </div>
+        <div class="d-flex gap-2 align-items-center" style="margin: 20px 0 0 20px;">
+            <button id="unitToggleBtn" class="btn btn-secondary">°C / °F</button>
+            <button id="themeToggleBtn" class="btn btn-secondary">Dark/Light Mode</button>
+        </div>
+        <div class="mainContentParentDiv d-flex">
+        <div class="leftDiv">
+            <div class="currentTempDiv leftChild p-3 d-flex flex-column gap-2">
+                <h6 class="m-0" id="cityName">City Name</h6>
+                <h5 class="m-0"> <span id="cityTemp">-</span> &deg;C</h5>
+                <h6 class="m-0" id="skyDesc">Sky Description</h6>
+                <hr class="line">
+                <div class="d-flex gap-2">
+                    <img src="./calendar.png" alt="" width="25px">
+                    <h6 class="m-0" id="date">Date</h6>
+                </div>
+                <div class="d-flex gap-2">
+                    <img src="./time.png" alt="" width="25px">
+                    <h6 class="m-0" id="time">Time</h6>
+                </div>
+            </div>
+
+
+            <div class="nextFiveDays leftChild p-3 d-flex flex-column gap-2">
+                <h6 class="m-0" id="comingFiveDaysTitle">Coming 5 Days</h6>
+                <div class="d-flex flex-column gap-2" id="comingFiveDaysContainer">
+                    <!-- Forecast rows will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+
+        <div class="rightDiv">
+            <div class="rightRow rowOne d-flex gap-2 justify-content-between align-items-center">
+
+                <div class="extraMetric d-flex gap-3">
+                    <img src="./flood.png" alt="" width="35px">
+                    <div>
+                        <h6 class="m-0">Humidity</h6>
+                        <h6 class="m-0" id="humidity">-</h6>
+                    </div>
+                </div>
+                <div class="extraMetric d-flex gap-3">
+                    <img src="./wind (1).png" alt="" width="35px">
+                    <div>
+                        <h6 class="m-0">Pressure</h6>
+                        <h6 class="m-0" id="pressure">-</h6>
+                    </div>
+                </div>
+                <div class="extraMetric d-flex gap-3">
+                    <img src="./hot.png" alt="" width="35px">
+                    <div>
+                        <h6 class="m-0">Feels like</h6>
+                        <h6 class="m-0" id="feelsLike">-</h6>
+                    </div>
+                </div>
+                <div class="extraMetric d-flex gap-3">
+                    <img src="./eye.png" alt="" width="35px">
+                    <div>
+                        <h6 class="m-0">Visibility</h6>
+                        <h6 class="m-0" id="visiblity">-</h6>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="rightRow rowTwo d-flex justify-content-between align-items-center">
+                <div class="AQI rowTwoDiv p-3 d-flex flex-column gap-2">
+                    <h5>Air Quality Index (AQI)</h5>
+
+                    <div class="d-flex align-items-center justify-content-between">
+                        <img src="./wind.png" alt="" width="40px">
+                        <div class="text-center">
+                            <h6 id="co">CO</h6>
+                            <h6 id="coValue">-</h6>
+                        </div>
+                        <div class="text-center">
+                            <h6 id="so2">SO2</h6>
+                            <h6 id="so2Value">-</h6>
+                        </div>
+                        <div class="text-center">
+                            <h6 id="o3">O3</h6>
+                            <h6 id="o3Value">-</h6>
+                        </div>
+                        <div class="text-center">
+                            <h6 id="no2">NO2</h6>
+                            <h6 id="no2Value">-</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sunRise rowTwoDiv p-3 gap-2">
+                    <h5 class="m-0">Sunrise & Sunset</h5>
+
+                    <div class="d-flex justify-content-between">
+                        <div class="sunriseDiv d-flex gap-2 align-items-center">
+                            <img src="./sun (1).png" alt="" width="75px">
+                            <div class="d-flex flex-column gap-1">
+                                <h6 class="m-0">Sunrise</h6>
+                                <h5 class="m-0" id="sunriseTime">-:-- Am</h5>
+                            </div>
+                        </div>
+
+                        <div class="sunsetDiv d-flex gap-2 align-items-center">
+                            <img src="./moon.png" alt="" width="65px">
+                            <div class="d-flex flex-column gap-2">
+                                <h6 class="m-0">Sunset</h6>
+                                <h5 class="m-0" id="sunsetTime">-:-- Pm</h5>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="rightRow rowThree d-flex flex-column gap-2">
+                <h5 class="m-0">Today</h5>
+                <div class="d-flex justify-content-between todayTempParentDiv" id="todayTempContainer">
+                   
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="./weather.js"></script>
+
+    <script>
+    // Store current unit (Celsius by default)
+    let currentUnit = 'C';
+
+    // Converts Celsius to Fahrenheit
+    function cToF(c) {
+        return (c * 9/5 + 32).toFixed(1);
+    }
+
+    // Converts Fahrenheit to Celsius
+    function fToC(f) {
+        return ((f - 32) * 5/9).toFixed(1);
+    }
+
+    // Updates all temperature displays based on selected unit
+    function updateTemperatureUnits() {
+        // Update current temperature
+        const tempElem = document.getElementById('cityTemp');
+        if (tempElem && tempElem.dataset.celsius) {
+            tempElem.innerText = currentUnit === 'C' ? tempElem.dataset.celsius : cToF(tempElem.dataset.celsius);
+            tempElem.nextSibling.textContent = currentUnit === 'C' ? ' °C' : ' °F';
+        }
+        // Update Coming 5 Days
+        document.querySelectorAll('#comingFiveDaysContainer .foreCastRow').forEach(row => {
+            const tempSpan = row.querySelector('h6.m-0[data-celsius]');
+            if (tempSpan && tempSpan.dataset.celsius) {
+                tempSpan.innerHTML = currentUnit === 'C'
+                    ? `${tempSpan.dataset.celsius} &deg;C`
+                    : `${cToF(tempSpan.dataset.celsius)} &deg;F`;
+            }
+        });
+        // Update Today section
+        updateTodaySection();
+    }
+
+    // Toggle unit button event
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('unitToggleBtn').addEventListener('click', function() {
+            currentUnit = currentUnit === 'C' ? 'F' : 'C';
+            updateTemperatureUnits();
+        });
+        // Dark/Light mode toggle
+        document.getElementById('themeToggleBtn').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+        });
+        // Search icon click
+        document.getElementById('searchIcon').addEventListener('click', function() {
+            fetchData();
+        });
+        // Enter key triggers search
+        document.querySelector('.inputfield').addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                fetchData();
+            }
+        });
+    });
+
+    // Update Coming 5 Days section with forecast data
+    function updateComingFiveDays(forecastList) {
+        const container = document.getElementById('comingFiveDaysContainer');
+        container.innerHTML = '';
+        forecastList.forEach(item => {
+            const row = document.createElement('div');
+            row.className = 'foreCastRow d-flex align-items-center justify-content-between';
+            row.innerHTML = `
+                <div class="d-flex gap-1 align-items-center">
+                    <img src="${item.icon}" width="25px">
+                    <h6 class="m-0" data-celsius="${item.temp}">${currentUnit === 'C' ? item.temp : cToF(item.temp)} &deg;${currentUnit}</h6>
+                </div>
+                <h6 class="m-0">${item.day}</h6>
+                <h6 class="m-0">${item.date}</h6>
+            `;
+            container.appendChild(row);
+        });
+    }
+
+    // Update Today section with current weather info
+    function updateTodaySection(weatherData) {
+        const todayContainer = document.getElementById('todayTempContainer');
+        if (!todayContainer || !weatherData) return;
+        todayContainer.innerHTML = '';
+        // Add current temp, description, icon
+        const iconUrl = weatherData.weather && weatherData.weather[0] ? `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png` : '';
+        const temp = currentUnit === 'C' ? weatherData.main.temp : cToF(weatherData.main.temp);
+        const desc = weatherData.weather && weatherData.weather[0] ? weatherData.weather[0].description : '';
+        const todayDiv = document.createElement('div');
+        todayDiv.className = 'todayTemp';
+        todayDiv.innerHTML = `
+            <img src="${iconUrl}" width="35px">
+            <h5>${temp} &deg;${currentUnit}</h5>
+            <h6>${desc}</h6>
+        `;
+        todayContainer.appendChild(todayDiv);
+    }
+
+    // Main weather update function
+    async function updateAllWeather(city) {
+        const apiKey = "0ae7909adb9d0eeea2354347203e1e28";
+        let cityNameElem = document.getElementById('cityName');
+        if (cityNameElem) cityNameElem.innerText = 'Loading...';
+        let errorElem = document.getElementById('weatherError');
+        if (!errorElem) {
+            errorElem = document.createElement('div');
+            errorElem.id = 'weatherError';
+            errorElem.style.color = 'red';
+            errorElem.style.margin = '10px 0';
+            cityNameElem && cityNameElem.parentNode.insertBefore(errorElem, cityNameElem.nextSibling);
+        }
+        errorElem.innerText = '';
+
+        try {
+            // Fetch current weather
+            const weatherRes = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`);
+            if (!weatherRes.ok) throw new Error('City not found or API error');
+            const weatherData = await weatherRes.json();
+
+            // Fetch air pollution
+            if (!weatherData.coord) throw new Error('No coordinates found for city');
+            const { lat, lon } = weatherData.coord;
+            const airRes = await fetch(`https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`);
+            if (!airRes.ok) throw new Error('Air pollution API error');
+            const airData = await airRes.json();
+            const air = airData.list && airData.list[0] ? airData.list[0].components : {};
+
+            // Update UI (check IDs)
+            if (document.getElementById('cityName')) document.getElementById('cityName').innerText = weatherData.name || '-';
+            if (document.getElementById('cityTemp')) {
+                document.getElementById('cityTemp').innerText = currentUnit === 'C' ? weatherData.main.temp : cToF(weatherData.main.temp);
+                document.getElementById('cityTemp').dataset.celsius = weatherData.main.temp;
+                document.getElementById('cityTemp').nextSibling.textContent = currentUnit === 'C' ? ' °C' : ' °F';
+            }
+            if (document.getElementById('skyDesc')) document.getElementById('skyDesc').innerText = weatherData.weather && weatherData.weather[0] ? weatherData.weather[0].description : '-';
+            if (document.getElementById('humidity')) document.getElementById('humidity').innerText = weatherData.main ? weatherData.main.humidity : '-';
+            if (document.getElementById('pressure')) document.getElementById('pressure').innerText = weatherData.main ? weatherData.main.pressure : '-';
+            if (document.getElementById('feelsLike')) document.getElementById('feelsLike').innerText = weatherData.main ? weatherData.main.feels_like : '-';
+            if (document.getElementById('visiblity')) document.getElementById('visiblity').innerText = weatherData.visibility || '-';
+            if (document.getElementById('date')) document.getElementById('date').innerText = weatherData.dt ? new Date(weatherData.dt * 1000).toLocaleDateString() : '-';
+            if (document.getElementById('time')) document.getElementById('time').innerText = weatherData.dt ? new Date(weatherData.dt * 1000).toLocaleTimeString() : '-';
+            if (document.getElementById('sunriseTime')) document.getElementById('sunriseTime').innerText = weatherData.sys ? new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString() : '-';
+            if (document.getElementById('sunsetTime')) document.getElementById('sunsetTime').innerText = weatherData.sys ? new Date(weatherData.sys.sunset * 1000).toLocaleTimeString() : '-';
+            if (document.getElementById('coValue')) document.getElementById('coValue').innerText = air.co || '-';
+            if (document.getElementById('so2Value')) document.getElementById('so2Value').innerText = air.so2 || '-';
+            if (document.getElementById('o3Value')) document.getElementById('o3Value').innerText = air.o3 || '-';
+            if (document.getElementById('no2Value')) document.getElementById('no2Value').innerText = air.no2 || '-';
+
+            // Update Today section
+            updateTodaySection(weatherData);
+
+            // Fetch 5-day forecast and update Coming 5 Days section
+            const forecastRes = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`);
+            if (!forecastRes.ok) throw new Error('Forecast API error');
+            const forecastData = await forecastRes.json();
+            // Parse 5 unique days
+            const dailyMap = {};
+            forecastData.list.forEach(item => {
+                const dateObj = new Date(item.dt * 1000);
+                const dateStr = dateObj.toLocaleDateString('en-GB'); // DD/MM/YYYY
+                if (!dailyMap[dateStr]) {
+                    dailyMap[dateStr] = item;
+                }
+            });
+            const forecastList = Object.values(dailyMap).slice(0, 5).map(item => {
+                const dateObj = new Date(item.dt * 1000);
+                const day = dateObj.toLocaleDateString('en-GB', { weekday: 'long' });
+                const date = dateObj.toLocaleDateString('en-GB').replace(/\//g, '-'); // DD-MM-YYYY
+                return {
+                    icon: item.weather && item.weather[0] ? `https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png` : '',
+                    temp: item.main ? item.main.temp.toFixed(1) : '-',
+                    day,
+                    date
+                };
+            });
+            updateComingFiveDays(forecastList);
+        } catch (err) {
+            // Show error message
+            if (errorElem) errorElem.innerText = err.message;
+            // Clear UI fields
+            [
+                'cityName','cityTemp','skyDesc','humidity','pressure','feelsLike','visiblity','date','time','sunriseTime','sunsetTime','coValue','so2Value','o3Value','no2Value'
+            ].forEach(id => {
+                if (document.getElementById(id)) document.getElementById(id).innerText = '-';
+            });
+            updateComingFiveDays([]);
+            updateTodaySection();
+        }
+    }
+
+    // Search button handler
+    function fetchData() {
+        let cityName = document.getElementsByClassName('inputfield')[0].value;
+        updateAllWeather(cityName);
+    }
+    </script>
+
+</body>
+
+</html>
